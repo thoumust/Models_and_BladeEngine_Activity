@@ -1,30 +1,32 @@
 <?php
 
-namespace Database\Factories;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use App\Models\Book;
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AppModelsBook>
- */
-class BookFactory extends Factory
+return new class extends Migration
 {
-    protected $model = Book::class;
     /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
+     * Run the migrations.
      */
-    public function definition(): array
+    public function up(): void
     {
-        return [
-            'isbn' => $this->faker->isbn13,
-            'title' => $this->faker->sentence,
-            'author' => $this->faker->name,
-            'description' => $this->faker->paragraph,
-            'date_published' => $this->faker->date,
-        ];
+        Schema::create('books', function (Blueprint $table) {
+            $table->id();
+            $table->string('isbn');
+            $table->string('title');
+            $table->string('author');
+            $table->text('description');
+            $table->date('date_published');
+            $table->timestamps();
+        });
     }
-}
-//$books = Book::factory()->times(20)->create();
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('books');
+    }
+};
