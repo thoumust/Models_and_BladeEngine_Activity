@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Books;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -11,6 +11,6 @@ class BookController extends Controller
     {
         $books = Books::all();
 
-        return view('books.index', compact('books'));
+        return view('index', ['books' => $books]);
     }
 }
