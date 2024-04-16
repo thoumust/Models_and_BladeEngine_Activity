@@ -17,20 +17,20 @@
             <tbody>
                 @foreach ($books as $book)
                 <tr>
-                    <td class="py-2 px-4 border-b>{{$book->isbn}}</td>
+                    <td class="py-2 px-4 border-b">{{$book->isbn}}</td>
 
-                    <td class="py-2 px-4 border-b>{{$book->title}}</td>
+                    <td class="py-2 px-4 border-b">{{$book->title}}</td>
 
-                    <td class="py-2 px-4 border-b>{{$book->author}}</td>
+                    <td class="py-2 px-4 border-b">{{$book->author}}</td>
 
-                    <td class="py-2 px-4 border-b>{{$book->description}}</td>
+                    <td class="py-2 px-4 border-b">{{$book->description}}</td>
 
-                    <td class="py-2 px-4 border-b>{{$book->date_published}}</td>
+                    <td class="py-2 px-4 border-b">{{$book->date_published}}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    
+@endsection
+
 @include('partials.footer')
-    @endsection
